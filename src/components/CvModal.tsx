@@ -53,34 +53,44 @@ export const CvModal: React.FC<CvModalProps> = ({ isOpen, onClose, darkMode }) =
         {/* Printable CV Content Document */}
         <div className="p-6 sm:p-10 space-y-8 print:p-0 print:space-y-6">
           {/* Header Block */}
-          <div className="border-b-2 border-slate-700 pb-6 print:border-black">
-            <h1
-              className="text-3xl sm:text-4xl font-extrabold tracking-tight"
-              style={{ fontFamily: 'var(--font-heading)' }}
-            >
-              {CV_DATA.personal.name}
-            </h1>
-            <p className="text-sm sm:text-base font-semibold text-amber-500 print:text-slate-800 mt-1">
-              {CV_DATA.personal.title}
-            </p>
+          <div className="border-b-2 border-slate-700 pb-6 print:border-black flex flex-col sm:flex-row sm:items-center justify-between gap-6">
+            <div>
+              <h1
+                className="text-3xl sm:text-4xl font-extrabold tracking-tight"
+                style={{ fontFamily: 'var(--font-heading)' }}
+              >
+                {CV_DATA.personal.name}
+              </h1>
+              <p className="text-sm sm:text-base font-semibold text-amber-500 print:text-slate-800 mt-1">
+                {CV_DATA.personal.title}
+              </p>
 
-            <div className="flex flex-wrap items-center gap-x-5 gap-y-1 text-xs text-slate-400 print:text-slate-700 mt-3">
-              <span className="flex items-center gap-1">
-                <MapPin className="w-3.5 h-3.5 text-amber-500" />
-                {CV_DATA.personal.location}
-              </span>
-              <span>·</span>
-              <span className="flex items-center gap-1">
-                <Phone className="w-3.5 h-3.5 text-amber-500" />
-                {CV_DATA.personal.phone}
-              </span>
-              <span>·</span>
-              <span className="flex items-center gap-1">
-                <Mail className="w-3.5 h-3.5 text-amber-500" />
-                {CV_DATA.personal.email}
-              </span>
-              <span>·</span>
-              <span>Nationality: {CV_DATA.personal.nationality}</span>
+              <div className="flex flex-wrap items-center gap-x-5 gap-y-1 text-xs text-slate-400 print:text-slate-700 mt-3">
+                <span className="flex items-center gap-1">
+                  <MapPin className="w-3.5 h-3.5 text-amber-500" />
+                  {CV_DATA.personal.location}
+                </span>
+                <span>·</span>
+                <span className="flex items-center gap-1">
+                  <Phone className="w-3.5 h-3.5 text-amber-500" />
+                  {CV_DATA.personal.phone}
+                </span>
+                <span>·</span>
+                <span className="flex items-center gap-1">
+                  <Mail className="w-3.5 h-3.5 text-amber-500" />
+                  {CV_DATA.personal.email}
+                </span>
+                <span>·</span>
+                <span>Nationality: {CV_DATA.personal.nationality}</span>
+              </div>
+            </div>
+
+            <div className="w-24 h-32 rounded-xl overflow-hidden border border-slate-700 print:border-slate-400 shrink-0 shadow-md">
+              <img
+                src={typeof window !== 'undefined' && localStorage.getItem('shafqat_custom_portrait') ? localStorage.getItem('shafqat_custom_portrait')! : '/images/shafqat_portrait.jpg'}
+                alt="Professor Shafqat Ul Mulk"
+                className="w-full h-full object-cover object-top"
+              />
             </div>
           </div>
 

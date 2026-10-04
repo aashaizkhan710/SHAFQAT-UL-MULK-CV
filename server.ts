@@ -533,6 +533,11 @@ app.post('/api/upload-photo', (req, res) => {
       fs.writeFileSync(srcImagePath, buffer);
     }
 
+    const distImagesDir = path.join(__dirname, 'dist', 'images');
+    if (fs.existsSync(distImagesDir)) {
+      fs.writeFileSync(path.join(distImagesDir, 'shafqat_portrait.jpg'), buffer);
+    }
+
     return res.json({
       success: true,
       message: 'Original photo saved successfully with zero modifications',
