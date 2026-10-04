@@ -1,0 +1,41 @@
+[
+  {
+    "id": "inq-mukqqwlf-5ud4",
+    "name": "Test Recruiter",
+    "email": "recruiter@example.com",
+    "phone": "",
+    "organization": "Independent / Direct",
+    "roleInterest": "General Inquiry",
+    "subject": "Consultation Request for Shafqat Ul Mulk",
+    "message": "Inquiring about consultation",
+    "date": "2026-09-28T04:22:09.027Z",
+    "status": "new",
+    "notes": ""
+  },
+  {
+    "id": "inq-initial-01",
+    "name": "Dr. Tariq Mahmood",
+    "email": "tariq.mahmood@edu-foundation.org",
+    "phone": "+92 300 5544332",
+    "organization": "Education Sector Reform Council",
+    "roleInterest": "Institutional Reform & Academic Governance",
+    "subject": "Consultation on 100-School Turnaround Roadmap",
+    "message": "Dear Engr. Shafqat Ul Mulk, we reviewed your work with the Project Implementation Unit and Swabi Model College turnaround. We would like to schedule an advisory discussion regarding secondary school governance.",
+    "date": "2026-09-20T10:30:00Z",
+    "status": "reviewed",
+    "notes": "Initial contact via web portal. Follow up scheduled."
+  },
+  {
+    "id": "inq-initial-02",
+    "name": "Engr. Sarah Al-Otaibi",
+    "email": "s.otaibi@defense-systems.aero",
+    "phone": "+966 50 123 4567",
+    "organization": "AeroTech Systems Gulf",
+    "roleInterest": "Defense & Aviation Technical Training",
+    "subject": "Avionics Embedded Systems & MIL-STD-1553 Training Workshop",
+    "message": "Greetings Professor Shafqat. Following your extensive tenure training Royal Saudi Air Force officers at CAE NUST, we are organizing an advanced embedded radar processing symposium.",
+    "date": "2026-09-24T14:15:00Z",
+    "status": "new",
+    "notes": "Interested in bespoke 3-day executive technical workshop."
+  }
+]
