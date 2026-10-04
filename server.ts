@@ -531,6 +531,7 @@ app.post('/api/upload-photo', (req, res) => {
     if (fs.existsSync(srcImagesDir)) {
       const srcImagePath = path.join(srcImagesDir, 'shafqat_ul_mulk_portrait_1791086611736.jpg');
       fs.writeFileSync(srcImagePath, buffer);
+      fs.writeFileSync(path.join(srcImagesDir, 'shafqat_portrait.jpg'), buffer);
     }
 
     const distImagesDir = path.join(__dirname, 'dist', 'images');

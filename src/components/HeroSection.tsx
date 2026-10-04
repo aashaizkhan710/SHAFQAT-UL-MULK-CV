@@ -12,6 +12,7 @@ import {
 } from 'lucide-react';
 import { CV_DATA } from '../data/cvData';
 import { WhatsAppIcon } from './icons/BrandIcons';
+import defaultPortrait from '../assets/images/shafqat_portrait.jpg';
 
 interface HeroSectionProps {
   darkMode: boolean;
@@ -26,15 +27,25 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [portraitSrc, setPortraitSrc] = useState<string>(() => {
     if (typeof window !== 'undefined') {
-      const saved = localStorage.getItem('shafqat_custom_portrait');
-      if (saved) return saved;
+      try {
+        const saved = localStorage.getItem('shafqat_custom_portrait');
+        if (saved && saved.startsWith('data:image/')) return saved;
+      } catch {
+        // ignore localStorage error
+      }
     }
-    return '/images/shafqat_portrait.jpg';
+    return defaultPortrait;
   });
 
   const [isUploading, setIsUploading] = useState(false);
   const [uploadSuccess, setUploadSuccess] = useState(false);
   const [isDragging, setIsDragging] = useState(false);
+
+  const handleImageError = () => {
+    if (portraitSrc !== defaultPortrait) {
+      setPortraitSrc(defaultPortrait);
+    }
+  };
 
   const handleFileProcess = async (file: File) => {
     if (!file || !file.type.startsWith('image/')) {
@@ -249,6 +260,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                     className="w-full h-full object-cover object-top transition-transform duration-700 group-hover/photo:scale-[1.02]"
                     loading="eager"
                     decoding="sync"
+                    onError={handleImageError}
                   />
 
                   {/* Drag and Drop Active Overlay */}

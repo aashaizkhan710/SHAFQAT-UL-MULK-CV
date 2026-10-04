@@ -30,6 +30,30 @@
       border-bottom: 2px solid #0f172a;
       padding-bottom: 20px;
       margin-bottom: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 20px;
+    }
+    .header-text {
+      flex: 1;
+    }
+    .header-portrait {
+      width: 100px;
+      height: 130px;
+      border-radius: 6px;
+      overflow: hidden;
+      border: 1px solid #cbd5e1;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+      flex-shrink: 0;
+      background: #0f172a;
+    }
+    .header-portrait img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top;
+      display: block;
     }
     h1 {
       font-size: 28px;
@@ -145,16 +169,26 @@
 
   <div class="cv-container">
     <div class="header">
-      <h1>Professor Shafqat-ul-Mulk</h1>
-      <div class="title">Academic Leader | Project Manager | Principal | Avionics & Embedded Systems Educator</div>
-      <div class="contact-bar">
-        <span class="contact-item"><strong>Location:</strong> Nowshera, Khyber Pakhtunkhwa, Pakistan</span>
-        <span class="contact-item">·</span>
-        <span class="contact-item"><strong>Mobile/WhatsApp:</strong> +92 323 9215615</span>
-        <span class="contact-item">·</span>
-        <span class="contact-item"><strong>Email:</strong> ssumulk@gmail.com</span>
-        <span class="contact-item">·</span>
-        <span class="contact-item"><strong>Nationality:</strong> Pakistani</span>
+      <div class="header-text">
+        <h1>Professor Shafqat-ul-Mulk</h1>
+        <div class="title">Academic Leader | Project Manager | Principal | Avionics & Embedded Systems Educator</div>
+        <div class="contact-bar">
+          <span class="contact-item"><strong>Location:</strong> Nowshera, Khyber Pakhtunkhwa, Pakistan</span>
+          <span class="contact-item">·</span>
+          <span class="contact-item"><strong>Mobile/WhatsApp:</strong> +92 323 9215615</span>
+          <span class="contact-item">·</span>
+          <span class="contact-item"><strong>Email:</strong> ssumulk@gmail.com</span>
+          <span class="contact-item">·</span>
+          <span class="contact-item"><strong>Nationality:</strong> Pakistani</span>
+        </div>
+      </div>
+      <div class="header-portrait">
+        <img
+          id="cv-portrait-img"
+          src="images/shafqat_portrait.jpg"
+          alt="Professor Shafqat Ul Mulk"
+          onerror="if(this.src!=='/images/shafqat_portrait.jpg')this.src='/images/shafqat_portrait.jpg';"
+        />
       </div>
     </div>
 
@@ -310,5 +344,15 @@
       Official Executive Curriculum Vitae of Engr. Shafqat Ul Mulk · Verified & Certified Document
     </div>
   </div>
+
+  <script>
+    try {
+      var custom = localStorage.getItem('shafqat_custom_portrait');
+      if (custom && custom.indexOf('data:image/') === 0) {
+        var el = document.getElementById('cv-portrait-img');
+        if (el) el.src = custom;
+      }
+    } catch (e) {}
+  </script>
 </body>
 </html>
