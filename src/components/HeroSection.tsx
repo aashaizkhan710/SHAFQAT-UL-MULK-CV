@@ -153,7 +153,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               >
                 <div className="relative aspect-[3/4] rounded-2xl overflow-hidden bg-slate-950 shadow-inner group/photo">
                   <img
-                    src="/images/shafqat_portrait.jpg"
+                    src={`${import.meta.env.BASE_URL}images/shafqat_portrait.jpg`}
                     alt="Professor Shafqat Ul Mulk"
                     className="w-full h-full object-cover object-top transition-transform duration-700 group-hover/photo:scale-[1.02]"
                     loading="eager"
