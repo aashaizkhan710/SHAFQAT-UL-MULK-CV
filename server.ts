@@ -508,49 +508,6 @@ app.post('/api/chat', async (req, res) => {
 });
 
 // ----------------------------------------------------
-// PHOTO UPLOAD ROUTE (Direct user photo upload, zero alterations)
-// ----------------------------------------------------
-app.post('/api/upload-photo', (req, res) => {
-  try {
-    const { image } = req.body;
-    if (!image || typeof image !== 'string') {
-      return res.status(400).json({ error: 'No image data provided' });
-    }
-
-    const base64Data = image.replace(/^data:image\/\w+;base64,/, '');
-    const buffer = Buffer.from(base64Data, 'base64');
-
-    const publicImagesDir = path.join(PUBLIC_DIR, 'images');
-    if (!fs.existsSync(publicImagesDir)) {
-      fs.mkdirSync(publicImagesDir, { recursive: true });
-    }
-    const publicImagePath = path.join(publicImagesDir, 'shafqat_portrait.jpg');
-    fs.writeFileSync(publicImagePath, buffer);
-
-    const srcImagesDir = path.join(__dirname, 'src', 'assets', 'images');
-    if (fs.existsSync(srcImagesDir)) {
-      const srcImagePath = path.join(srcImagesDir, 'shafqat_ul_mulk_portrait_1791086611736.jpg');
-      fs.writeFileSync(srcImagePath, buffer);
-      fs.writeFileSync(path.join(srcImagesDir, 'shafqat_portrait.jpg'), buffer);
-    }
-
-    const distImagesDir = path.join(__dirname, 'dist', 'images');
-    if (fs.existsSync(distImagesDir)) {
-      fs.writeFileSync(path.join(distImagesDir, 'shafqat_portrait.jpg'), buffer);
-    }
-
-    return res.json({
-      success: true,
-      message: 'Original photo saved successfully with zero modifications',
-      url: '/images/shafqat_portrait.jpg'
-    });
-  } catch (error: any) {
-    console.error('Error saving uploaded photo:', error);
-    return res.status(500).json({ error: 'Failed to save photo' });
-  }
-});
-
-// ----------------------------------------------------
 // VITE INTEGRATION / STATIC SERVING
 // ----------------------------------------------------
 async function startServer() {

@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { X, Printer, Download, MapPin, Mail, Phone, Award, CheckCircle2 } from 'lucide-react';
 import { CV_DATA } from '../data/cvData';
-import defaultPortrait from '../assets/images/shafqat_portrait.jpg';
 
 interface CvModalProps {
   isOpen: boolean;
@@ -10,29 +9,6 @@ interface CvModalProps {
 }
 
 export const CvModal: React.FC<CvModalProps> = ({ isOpen, onClose, darkMode }) => {
-  const [cvPortrait, setCvPortrait] = useState<string>(() => {
-    if (typeof window !== 'undefined') {
-      try {
-        const saved = localStorage.getItem('shafqat_custom_portrait');
-        if (saved && saved.startsWith('data:image/')) return saved;
-      } catch {}
-    }
-    return defaultPortrait;
-  });
-
-  useEffect(() => {
-    if (isOpen && typeof window !== 'undefined') {
-      try {
-        const saved = localStorage.getItem('shafqat_custom_portrait');
-        if (saved && saved.startsWith('data:image/')) {
-          setCvPortrait(saved);
-          return;
-        }
-      } catch {}
-      setCvPortrait(defaultPortrait);
-    }
-  }, [isOpen]);
-
   if (!isOpen) return null;
 
   const handlePrint = () => {
@@ -111,10 +87,9 @@ export const CvModal: React.FC<CvModalProps> = ({ isOpen, onClose, darkMode }) =
 
             <div className="w-24 h-32 rounded-xl overflow-hidden border border-slate-700 print:border-slate-400 shrink-0 shadow-md">
               <img
-                src={cvPortrait}
+                src="/images/shafqat_portrait.jpg"
                 alt="Professor Shafqat Ul Mulk"
                 className="w-full h-full object-cover object-top"
-                onError={() => setCvPortrait(defaultPortrait)}
               />
             </div>
           </div>

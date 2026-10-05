@@ -185,9 +185,8 @@
       <div class="header-portrait">
         <img
           id="cv-portrait-img"
-          src="images/shafqat_portrait.jpg"
+          src="/images/shafqat_portrait.jpg"
           alt="Professor Shafqat Ul Mulk"
-          onerror="if(this.src!=='/images/shafqat_portrait.jpg')this.src='/images/shafqat_portrait.jpg';"
         />
       </div>
     </div>
@@ -344,15 +343,5 @@
       Official Executive Curriculum Vitae of Engr. Shafqat Ul Mulk · Verified & Certified Document
     </div>
   </div>
-
-  <script>
-    try {
-      var custom = localStorage.getItem('shafqat_custom_portrait');
-      if (custom && custom.indexOf('data:image/') === 0) {
-        var el = document.getElementById('cv-portrait-img');
-        if (el) el.src = custom;
-      }
-    } catch (e) {}
-  </script>
 </body>
 </html>
