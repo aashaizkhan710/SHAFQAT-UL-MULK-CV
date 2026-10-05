@@ -1,5 +1,5 @@
 import React from 'react';
-import { X, Printer, Download, MapPin, Mail, Phone, Award, CheckCircle2 } from 'lucide-react';
+import { X, Printer, Download, Mail, Phone, Award, CheckCircle2 } from 'lucide-react';
 import { CV_DATA } from '../data/cvData';
 
 interface CvModalProps {
@@ -66,11 +66,6 @@ export const CvModal: React.FC<CvModalProps> = ({ isOpen, onClose, darkMode }) =
               </p>
 
               <div className="flex flex-wrap items-center gap-x-5 gap-y-1 text-xs text-slate-400 print:text-slate-700 mt-3">
-                <span className="flex items-center gap-1">
-                  <MapPin className="w-3.5 h-3.5 text-amber-500" />
-                  {CV_DATA.personal.location}
-                </span>
-                <span>·</span>
                 <span className="flex items-center gap-1">
                   <Phone className="w-3.5 h-3.5 text-amber-500" />
                   {CV_DATA.personal.phone}

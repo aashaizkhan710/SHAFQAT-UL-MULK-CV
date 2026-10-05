@@ -1,5 +1,5 @@
 import React from 'react';
-import { MapPin, Phone, Mail, Share2, Linkedin, FileText, ExternalLink } from 'lucide-react';
+import { Phone, Mail, Share2, Linkedin, FileText, ExternalLink } from 'lucide-react';
 import { WhatsAppIcon, GmailIcon } from './icons/BrandIcons';
 import { CV_DATA } from '../data/cvData';
 
@@ -18,12 +18,6 @@ export const TopContactBar: React.FC<TopContactBarProps> = ({ onOpenShare, onOpe
       <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-y-2 gap-x-4">
         {/* Contact Coordinates */}
         <div className="flex flex-wrap items-center gap-x-4 sm:gap-x-5 gap-y-1.5 font-medium">
-          {/* Location */}
-          <div className="hidden lg:flex items-center gap-1.5 text-slate-400">
-            <MapPin className="w-3.5 h-3.5 text-amber-500 shrink-0" />
-            <span>{CV_DATA.personal.location}</span>
-          </div>
-
           {/* WhatsApp Direct Chat */}
           <a
             href={CV_DATA.personal.whatsappUrl}

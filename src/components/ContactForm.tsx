@@ -7,7 +7,6 @@ import {
   Mail,
   Building,
   User,
-  MapPin,
   Linkedin,
   MessageSquare,
   Copy,
@@ -392,19 +391,6 @@ export const ContactForm: React.FC<ContactFormProps> = ({ darkMode }) => {
                 <span className="text-[10px] font-bold text-sky-400 uppercase tracking-wider px-2 py-0.5 rounded bg-sky-500/10">
                   Verified
                 </span>
-              </div>
-
-              {/* Location */}
-              <div className="bulky-point flex items-center gap-3">
-                <div className="p-2.5 rounded-xl bg-slate-800 text-slate-300 shrink-0">
-                  <MapPin className="w-5 h-5" />
-                </div>
-                <div>
-                  <div className="text-[11px] text-slate-400 font-medium">Residence & Official Base</div>
-                  <div className="text-sm font-semibold text-white">
-                    {CV_DATA.personal.location}
-                  </div>
-                </div>
               </div>
             </div>
           </div>

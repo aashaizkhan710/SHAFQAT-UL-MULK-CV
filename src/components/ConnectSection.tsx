@@ -2,15 +2,13 @@ import React, { useState } from 'react';
 import {
   Mail,
   Phone,
-  MapPin,
   Send,
   CheckCircle2,
   Copy,
   ExternalLink,
   MessageSquare,
   ArrowUpRight,
-  Sparkles,
-  Clock
+  Sparkles
 } from 'lucide-react';
 import { CV_DATA } from '../data/cvData';
 import { WhatsAppIcon } from './icons/BrandIcons';
@@ -102,8 +100,8 @@ export const ConnectSection: React.FC<ConnectSectionProps> = ({ darkMode }) => {
           </p>
         </div>
 
-        {/* 4 Interactive Animated Social Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-12">
+        {/* 3 Interactive Direct Contact Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-12">
           
           {/* LinkedIn Interactive Card */}
           <a
@@ -193,31 +191,6 @@ export const ConnectSection: React.FC<ConnectSectionProps> = ({ darkMode }) => {
                 <Copy className="w-3 h-3" />
                 <span>{copiedEmail ? 'Copied!' : 'Copy'}</span>
               </button>
-            </div>
-          </div>
-
-          {/* Location Interactive Card */}
-          <div className="framer-card p-6 flex flex-col justify-between group text-left">
-            <div>
-              <div className="w-12 h-12 rounded-2xl bg-sky-500/10 border border-sky-500/20 flex items-center justify-center text-sky-400 mb-4 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3">
-                <MapPin className="w-6 h-6" />
-              </div>
-              <h3 className={`text-base font-bold transition-colors group-hover:text-sky-400 ${
-                darkMode ? 'text-white' : 'text-slate-900'
-              }`}>
-                Office Location
-              </h3>
-              <p className={`text-xs mt-1 ${darkMode ? 'text-slate-400' : 'text-slate-500'}`}>
-                Nowshera / Swabi / Risalpur, Khyber Pakhtunkhwa, Pakistan.
-              </p>
-            </div>
-            
-            <div className="mt-5 pt-3 border-t border-slate-800/40 flex items-center justify-between text-xs text-sky-400 font-medium">
-              <span className="flex items-center gap-1">
-                <Clock className="w-3 h-3" />
-                <span>PKT (UTC+5)</span>
-              </span>
-              <span className="text-[11px] text-slate-500">Government PIU</span>
             </div>
           </div>
 
